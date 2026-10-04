@@ -1,0 +1,4 @@
+build/
+dist/
+IPAInstaller.xcodeproj/
+.DS_Store

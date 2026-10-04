@@ -1,0 +1,35 @@
+name: IPAInstaller
+options:
+  bundleIdPrefix: com.elsterlee
+  deploymentTarget:
+    macOS: "15.0"
+  xcodeVersion: "27.0"
+  createIntermediateGroups: true
+  developmentLanguage: zh-Hans
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    SWIFT_DEFAULT_ACTOR_ISOLATION: MainActor
+    SWIFT_APPROACHABLE_CONCURRENCY: YES
+
+targets:
+  IPAInstaller:
+    type: application
+    platform: macOS
+    sources: [IPAInstaller]
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.elsterlee.IPAInstaller
+        PRODUCT_NAME: IPAInstaller
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: IPA 安装器
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.developer-tools
+        # 要调用 codesign、security、devicectl，不能放进沙盒。
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: NO
+        CODE_SIGN_STYLE: Manual
+        CODE_SIGN_IDENTITY: "-"
